@@ -353,6 +353,11 @@ impl Taffy {
         Ok(old_child)
     }
 
+    /// Get any available parent for this node
+    pub fn parent(&self, node: NodeId) -> Option<NodeId> {
+        self.parents[node.into()]
+    }
+
     /// Returns the child node of the parent `node` at the provided `child_index`
     pub fn child_at_index(&self, parent: NodeId, child_index: usize) -> TaffyResult<NodeId> {
         let parent_key = parent.into();
